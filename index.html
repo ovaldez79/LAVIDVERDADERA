@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Página Principal</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f7fb;
+        color: #222;
+      }
+
+      header {
+        background: linear-gradient(135deg, #1f3c88, #2e7de1);
+        color: white;
+        padding: 18px 40px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        box-shadow: 0 4px 12px rgba(255, 183, 3, 0.35);
+        background: white;
+        border: 3px solid white;
+        padding: 0;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      .menu {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menu a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        transition: opacity 0.2s ease;
+      }
+
+      .menu a:hover {
+        opacity: 0.8;
+      }
+
+      .btn-registro {
+        background: #ffb703;
+        color: #1a1a1a;
+        border: none;
+        border-radius: 25px;
+        padding: 12px 22px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 10px rgba(255, 183, 3, 0.35);
+      }
+
+      .btn-registro:hover {
+        transform: translateY(-1px);
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 30px;
+        align-items: center;
+        background: white;
+        border-radius: 18px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(31, 60, 136, 0.08);
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+        margin: 0 0 18px;
+        line-height: 1.1;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #4c4c4c;
+      }
+
+      .hero-actions {
+        margin-top: 25px;
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 14px 24px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: #1f3c88;
+        color: white;
+      }
+
+      .btn-secondary {
+        background: #eef4ff;
+        color: #1f3c88;
+      }
+
+      .hero-card {
+        background: linear-gradient(135deg, #edf5ff, #dfeeff);
+        border-radius: 18px;
+        padding: 30px;
+        min-height: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .card-box {
+        background: white;
+        border-radius: 14px;
+        padding: 18px;
+        margin-bottom: 14px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+      }
+
+      .card-box strong {
+        display: block;
+        font-size: 1.8rem;
+        color: #1f3c88;
+        margin-bottom: 4px;
+      }
+
+      .features {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .feature {
+        background: white;
+        padding: 28px 22px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+      }
+
+      .feature h3 {
+        margin-top: 0;
+        font-size: 1.2rem;
+      }
+
+      .feature p {
+        color: #555;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .register {
+        margin-top: 60px;
+        background: #1f3c88;
+        color: white;
+        border-radius: 18px;
+        padding: 36px 28px;
+        text-align: center;
+      }
+
+      .register h2 {
+        margin-top: 0;
+        font-size: 2rem;
+      }
+
+      .register p {
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 560px;
+        margin: 12px auto 0;
+        line-height: 1.7;
+      }
+
+      .register a {
+        margin-top: 25px;
+      }
+
+      .register button {
+        background: #ffb703;
+        color: #111;
+        border: none;
+        border-radius: 10px;
+        padding: 14px 18px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 16px 20px;
+        }
+
+        .nav {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .brand {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .logo-img {
+          width: 60px;
+          height: 60px;
+        }
+
+        .logo {
+          font-size: 1.2rem;
+        }
+
+        .menu {
+          width: 100%;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px 18px;
+        }
+
+        .btn-registro {
+          width: 100%;
+          max-width: 220px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 24px;
+        }
+
+        .features {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 2.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <div class="brand">
+          <img class="logo-img" src="imagen/Logo.jpeg" alt="Logo de la empresa" />
+          <div class="logo">LA VIDVERDADERA</div>
+        </div>
+        <ul class="menu">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a href="register.html" class="btn-registro">Registrarse</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div>
+          <h1>Soluciones digitales para crecer.</h1>
+          <p>
+            Ayudamos a empresas y personas a digitalizar procesos, mejorar su
+            presencia online y alcanzar nuevos objetivos con estrategias claras y
+            resultados medibles.
+          </p>
+          <div class="hero-actions">
+            <a href="register.html" class="btn-primary">Comenzar</a>
+            <a href="#servicios" class="btn-secondary">Ver servicios</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="card-box">
+            <strong>+120%</strong>
+            <span>Incremento en ventas online</span>
+          </div>
+          <div class="card-box">
+            <strong>24/7</strong>
+            <span>Soporte y atención constante</span>
+          </div>
+          <div class="card-box">
+            <strong>500+</strong>
+            <span>Clientes satisfechos</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="servicios">
+        <article class="feature">
+          <h3>Diseño web</h3>
+          <p>Creación de páginas modernas, funcionales y optimizadas para convertir visitas en clientes.</p>
+        </article>
+        <article class="feature">
+          <h3>E-commerce</h3>
+          <p>Implementamos tiendas online con experiencia de compra clara, rápida y segura.</p>
+        </article>
+        <article class="feature">
+          <h3>Marketing digital</h3>
+          <p>Estrategias de posicionamiento, redes sociales y campañas para atraer más público.</p>
+        </article>
+      </section>
+
+      <section class="register" id="registro">
+        <h2>Regístrate ahora</h2>
+        <p>Completa tu registro en una página independiente para una experiencia más clara y ordenada.</p>
+        <a href="register.html" class="btn-primary">Ir al registro</a>
+      </section>
+    </main>
+  </body>
+</html>
