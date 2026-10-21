@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Personas | Inicio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="company-brand" href="index.html#inicio" aria-label="Iglesia Cristiana La Vid Verdadera, ir al inicio">
+      <img class="company-emblem" src="imagen/Logo.jpg" alt="">
+      <span class="company-name"><span>Iglesia Cristiana</span><strong>La Vid Verdadera</strong></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="navigation" aria-label="Menú principal">
+      <a class="nav-link active" href="index.html#inicio">Inicio</a>
+      <a class="nav-link" href="registrar.html">Registrar persona</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="inicio">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="status-dot"></span> Panel de administración</span>
+        <h1>Bienvenido a tu<br><span>espacio de personas.</span></h1>
+        <p>Un lugar sencillo para registrar, organizar y consultar la información de las personas de tu comunidad.</p>
+        <a class="button button-primary" href="registrar.html">Registrar una persona <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-card">
+          <div class="art-card-top"><span class="art-avatar">👋</span><span class="art-badge">+ Nuevo</span></div>
+          <div class="art-line line-long"></div>
+          <div class="art-line line-short"></div>
+          <div class="art-card-bottom"><span class="art-mini-avatar">M</span><span class="art-mini-avatar avatar-two">J</span><span class="art-mini-avatar avatar-three">A</span><span class="art-count">Tu comunidad crece</span></div>
+        </div>
+        <span class="art-sparkle sparkle-one">✳</span>
+        <span class="art-sparkle sparkle-two">✦</span>
+      </div>
+    </section>
+
+    <section class="section-wrap quick-actions" aria-labelledby="actions-title">
+      <div class="section-heading">
+        <div><span class="eyebrow">EMPIEZA AQUÍ</span><h2 id="actions-title">¿Qué necesitas hacer?</h2></div>
+        <p>Agrega personas al directorio de la iglesia.</p>
+      </div>
+      <div class="action-grid">
+        <a class="action-card" href="registrar.html">
+          <span class="action-icon icon-purple" aria-hidden="true">＋</span>
+          <span class="action-text"><strong>Registrar persona</strong><span>Agrega a alguien nuevo</span></span>
+          <span class="action-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><span class="brand small-brand"><span class="brand-mark" aria-hidden="true">P</span><span>Personas<span class="brand-period">.</span></span></span><span>Un espacio para conectar.</span></footer>
+</body>
+</html>

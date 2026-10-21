@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Personas registradas | Iglesia Cristiana La Vid Verdadera</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="company-brand" href="index.html#inicio" aria-label="Iglesia Cristiana La Vid Verdadera, ir al inicio">
+      <img class="company-emblem" src="imagen/Logo.jpg" alt="">
+      <span class="company-name"><span>Iglesia Cristiana</span><strong>La Vid Verdadera</strong></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="navigation" aria-label="Menú principal">
+      <a class="nav-link" href="index.html#inicio">Inicio</a>
+      <a class="nav-link" href="registrar.html">Registrar persona</a>
+      <a class="nav-link active" href="personas.html" aria-current="page">Personas registradas</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-wrap content-section people-section directory-page">
+      <div class="section-heading people-heading">
+        <div><span class="eyebrow">DIRECTORIO</span><h1>Personas registradas</h1></div>
+        <span class="count-pill" id="people-count">0 personas</span>
+      </div>
+      <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+      <div class="table-card">
+        <div class="table-scroll">
+          <table hidden>
+            <thead><tr><th>Nombre</th><th>Correo electrónico</th><th>Teléfono</th></tr></thead>
+            <tbody id="people-list"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="empty-state">
+          <span class="empty-icon" aria-hidden="true">♧</span>
+          <strong>Aún no hay personas registradas</strong>
+          <span>Los registros que agregues aparecerán aquí.</span>
+          <a href="registrar.html">Registrar primera persona →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><span class="brand small-brand"><span class="brand-mark" aria-hidden="true">P</span><span>Personas<span class="brand-period">.</span></span></span><span>Un espacio para conectar.</span></footer>
+</body>
+</html>
