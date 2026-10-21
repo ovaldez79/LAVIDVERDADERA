@@ -98,6 +98,13 @@ h1 span { color: var(--purple); }
 .form-footer { margin-top: 22px; padding-top: 18px; border-top: 1px solid #f1f0f5; display: flex; align-items: center; justify-content: space-between; }
 .form-footer p { margin: 0; color: var(--muted); font-size: 11px; }
 .form-message { min-height: 0; margin: 0; color: #28845f; font-size: 12px; }.form-message:not(:empty) { margin-top: 13px; }
+.form-message.message-error { color: #bd4141; }
+.registration-page { min-height: calc(100vh - 166px); padding-bottom: 60px; }
+.registration-page .section-heading { align-items: center; }
+.registration-page .section-heading h1 { margin: 6px 0 0; font-size: 30px; line-height: 1.2; }
+.back-link { display: inline-block; margin-top: 18px; color: var(--purple); font-size: 12px; font-weight: 600; }
+.directory-page { min-height: calc(100vh - 166px); }
+.directory-page .section-heading h1 { margin: 6px 0 0; font-size: 30px; line-height: 1.2; }
 .people-section { padding-bottom: 60px; }
 .people-heading { align-items: center; }
 .count-pill { padding: 7px 11px; border-radius: 18px; background: #f0edff; color: var(--purple); font-size: 11px; font-weight: 600; }
@@ -130,6 +137,8 @@ td { padding: 14px 20px; border-top: 1px solid #f2f1f6; color: #5f5d72; font-siz
   h1 { font-size: clamp(33px, 8vw, 43px); }
   .section-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
   .section-heading h2 { font-size: 21px; }
+  .registration-page .section-heading h1 { font-size: 25px; }
+  .directory-page .section-heading h1 { font-size: 25px; }
   .section-heading > p { font-size: 11px; }
   .quick-actions, .content-section { padding-top: 40px; }
   .action-grid { grid-template-columns: 1fr; gap: 10px; }

@@ -10,7 +10,7 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="company-brand" href="#inicio" aria-label="Iglesia Cristiana La Vid Verdadera, ir al inicio">
+    <a class="company-brand" href="index.html#inicio" aria-label="Iglesia Cristiana La Vid Verdadera, ir al inicio">
       <img class="company-emblem" src="imagen/Logo.jpg" alt="">
       <span class="company-name"><span>Iglesia Cristiana</span><strong>La Vid Verdadera</strong></span>
     </a>
@@ -18,9 +18,8 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="navigation" aria-label="Menú principal">
-      <a class="nav-link active" href="#inicio">Inicio</a>
-      <a class="nav-link" href="#registro">Registrar persona</a>
-      <a class="nav-link" href="#personas">Personas registradas</a>
+      <a class="nav-link active" href="index.html#inicio">Inicio</a>
+      <a class="nav-link" href="registrar.html">Registrar persona</a>
     </nav>
   </header>
 
@@ -30,7 +29,7 @@
         <span class="eyebrow"><span class="status-dot"></span> Panel de administración</span>
         <h1>Bienvenido a tu<br><span>espacio de personas.</span></h1>
         <p>Un lugar sencillo para registrar, organizar y consultar la información de las personas de tu comunidad.</p>
-        <a class="button button-primary" href="#registro">Registrar una persona <span aria-hidden="true">→</span></a>
+        <a class="button button-primary" href="registrar.html">Registrar una persona <span aria-hidden="true">→</span></a>
       </div>
       <div class="hero-art" aria-hidden="true">
         <div class="art-orbit orbit-one"></div>
@@ -49,72 +48,14 @@
     <section class="section-wrap quick-actions" aria-labelledby="actions-title">
       <div class="section-heading">
         <div><span class="eyebrow">EMPIEZA AQUÍ</span><h2 id="actions-title">¿Qué necesitas hacer?</h2></div>
-        <p>Accede rápidamente a las opciones principales.</p>
+        <p>Agrega personas al directorio de la iglesia.</p>
       </div>
       <div class="action-grid">
-        <a class="action-card" href="#registro">
+        <a class="action-card" href="registrar.html">
           <span class="action-icon icon-purple" aria-hidden="true">＋</span>
           <span class="action-text"><strong>Registrar persona</strong><span>Agrega a alguien nuevo</span></span>
           <span class="action-arrow" aria-hidden="true">↗</span>
         </a>
-        <a class="action-card" href="#personas">
-          <span class="action-icon icon-peach" aria-hidden="true">▤</span>
-          <span class="action-text"><strong>Ver personas</strong><span>Consulta los registros guardados</span></span>
-          <span class="action-arrow" aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="section-wrap content-section" id="registro">
-      <div class="section-heading">
-        <div><span class="eyebrow">NUEVO REGISTRO</span><h2>Registrar una persona</h2></div>
-        <p>Completa los datos para agregar una persona.</p>
-      </div>
-      <form class="form-card" id="person-form">
-        <div class="form-grid">
-          <label class="field">
-            <span>Nombre <span class="required">*</span></span>
-            <input name="nombre" type="text" placeholder="Ej. Ana" autocomplete="given-name" required>
-          </label>
-          <label class="field">
-            <span>Apellidos <span class="required">*</span></span>
-            <input name="apellidos" type="text" placeholder="Ej. García López" autocomplete="family-name" required>
-          </label>
-          <label class="field">
-            <span>Correo electrónico</span>
-            <input name="correo" type="email" placeholder="nombre@ejemplo.com" autocomplete="email">
-          </label>
-          <label class="field">
-            <span>Teléfono</span>
-            <input name="telefono" type="tel" placeholder="Ej. 555 123 4567" autocomplete="tel">
-          </label>
-        </div>
-        <div class="form-footer">
-          <p><span class="required">*</span> Campos obligatorios</p>
-          <button class="button button-primary" type="submit">Guardar persona <span aria-hidden="true">→</span></button>
-        </div>
-        <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
-      </form>
-    </section>
-
-    <section class="section-wrap content-section people-section" id="personas">
-      <div class="section-heading people-heading">
-        <div><span class="eyebrow">DIRECTORIO</span><h2>Personas registradas</h2></div>
-        <span class="count-pill" id="people-count">0 personas</span>
-      </div>
-      <div class="table-card">
-        <div class="table-scroll">
-          <table>
-            <thead><tr><th>Nombre</th><th>Correo electrónico</th><th>Teléfono</th></tr></thead>
-            <tbody id="people-list"></tbody>
-          </table>
-        </div>
-        <div class="empty-state" id="empty-state">
-          <span class="empty-icon" aria-hidden="true">♧</span>
-          <strong>Aún no hay personas registradas</strong>
-          <span>Los registros que agregues aparecerán aquí.</span>
-          <a href="#registro">Registrar primera persona →</a>
-        </div>
       </div>
     </section>
   </main>

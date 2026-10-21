@@ -21,8 +21,10 @@ function loadPeople() {
     return parsedPeople;
   } catch (error) {
     console.error("No se pudieron cargar las personas guardadas.", error);
-    formMessage.textContent = "No se pudieron cargar los registros guardados.";
-    formMessage.classList.add("message-error");
+    if (formMessage) {
+      formMessage.textContent = "No se pudieron cargar los registros guardados.";
+      formMessage.classList.add("message-error");
+    }
     return [];
   }
 }
@@ -30,6 +32,8 @@ function loadPeople() {
 let people = loadPeople();
 
 function renderPeople() {
+  if (!peopleList || !emptyState || !peopleCount) return;
+
   peopleList.replaceChildren();
   emptyState.hidden = people.length > 0;
   peopleList.closest("table").hidden = people.length === 0;
@@ -56,49 +60,57 @@ function renderPeople() {
   }
 }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  formMessage.textContent = "";
-  formMessage.classList.remove("message-error");
+if (form) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (formMessage) {
+      formMessage.textContent = "";
+      formMessage.classList.remove("message-error");
+    }
 
-  if (!form.reportValidity()) return;
+    if (!form.reportValidity()) return;
 
-  const values = new FormData(form);
-  const person = {
-    nombre: String(values.get("nombre")).trim(),
-    apellidos: String(values.get("apellidos")).trim(),
-    correo: String(values.get("correo")).trim(),
-    telefono: String(values.get("telefono")).trim(),
-  };
+    const values = new FormData(form);
+    const person = {
+      nombre: String(values.get("nombre")).trim(),
+      apellidos: String(values.get("apellidos")).trim(),
+      correo: String(values.get("correo")).trim(),
+      telefono: String(values.get("telefono")).trim(),
+    };
 
-  if (!person.nombre || !person.apellidos) return;
+    if (!person.nombre || !person.apellidos) return;
 
-  const updatedPeople = [...people, person];
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPeople));
-  } catch (error) {
-    console.error("No se pudo guardar la persona.", error);
-    formMessage.textContent = "No se pudo guardar el registro. Revisa el espacio disponible del navegador.";
-    formMessage.classList.add("message-error");
-    return;
-  }
+    const updatedPeople = [...people, person];
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPeople));
+    } catch (error) {
+      console.error("No se pudo guardar la persona.", error);
+      if (formMessage) {
+        formMessage.textContent = "No se pudo guardar el registro. Revisa el espacio disponible del navegador.";
+        formMessage.classList.add("message-error");
+      }
+      return;
+    }
 
-  people = updatedPeople;
-  renderPeople();
-  form.reset();
-  formMessage.textContent = "Persona registrada correctamente.";
-});
+    people = updatedPeople;
+    renderPeople();
+    form.reset();
+    if (formMessage) formMessage.textContent = "Persona registrada correctamente.";
+  });
+}
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = navigation.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
+if (menuToggle && navigation) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navigation.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
 
-navigation.addEventListener("click", (event) => {
-  if (event.target.closest("a")) {
-    navigation.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-  }
-});
+  navigation.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      navigation.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
 
 renderPeople();
