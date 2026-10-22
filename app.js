@@ -5,8 +5,13 @@ const peopleList = document.querySelector("#people-list");
 const emptyState = document.querySelector("#empty-state");
 const peopleCount = document.querySelector("#people-count");
 const formMessage = document.querySelector("#form-message");
+const directoryLogin = document.querySelector("#directory-login");
+const directoryContent = document.querySelector("#directory-content");
+const loginMessage = document.querySelector("#login-message");
+const directoryLogout = document.querySelector("#directory-logout");
 const navigation = document.querySelector(".navigation");
 const menuToggle = document.querySelector(".menu-toggle");
+const DIRECTORY_SESSION_KEY = "personas-directorio-autenticado";
 
 function loadPeople() {
   try {
@@ -29,7 +34,7 @@ function loadPeople() {
   }
 }
 
-let people = loadPeople();
+let people = form ? loadPeople() : [];
 
 function renderPeople() {
   if (!peopleList || !emptyState || !peopleCount) return;
@@ -109,6 +114,67 @@ if (form) {
     renderPeople();
     form.reset();
     if (formMessage) formMessage.textContent = "Persona registrada correctamente.";
+  });
+}
+
+if (directoryLogin && directoryContent) {
+  const showDirectory = () => {
+    people = loadPeople();
+    directoryLogin.hidden = true;
+    directoryContent.hidden = false;
+    renderPeople();
+  };
+
+  try {
+    if (sessionStorage.getItem(DIRECTORY_SESSION_KEY) === "true") {
+      showDirectory();
+    }
+  } catch (error) {
+    console.error("No se pudo verificar la sesión del directorio.", error);
+    if (loginMessage) loginMessage.textContent = "No se pudo verificar la sesión. Habilita el almacenamiento del navegador e inténtalo de nuevo.";
+  }
+
+  directoryLogin.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (loginMessage) loginMessage.textContent = "";
+    if (!directoryLogin.reportValidity()) return;
+
+    const credentials = new FormData(directoryLogin);
+    const username = String(credentials.get("username")).trim();
+    const password = String(credentials.get("password"));
+
+    if (username !== "admin" || password !== "Lavid2026") {
+      if (loginMessage) loginMessage.textContent = "El usuario o la contraseña son incorrectos.";
+      return;
+    }
+
+    try {
+      sessionStorage.setItem(DIRECTORY_SESSION_KEY, "true");
+    } catch (error) {
+      console.error("No se pudo guardar la sesión del directorio.", error);
+      if (loginMessage) loginMessage.textContent = "No se pudo iniciar sesión. Habilita el almacenamiento del navegador e inténtalo de nuevo.";
+      return;
+    }
+
+    directoryLogin.reset();
+    showDirectory();
+  });
+
+  if (directoryLogout) directoryLogout.addEventListener("click", () => {
+    try {
+      sessionStorage.removeItem(DIRECTORY_SESSION_KEY);
+    } catch (error) {
+      console.error("No se pudo cerrar la sesión del directorio.", error);
+      directoryContent.hidden = true;
+      directoryLogin.hidden = false;
+      if (loginMessage) loginMessage.textContent = "No se pudo cerrar la sesión del navegador. Cierra esta pestaña para finalizarla.";
+      return;
+    }
+
+    directoryContent.hidden = true;
+    directoryLogin.hidden = false;
+    directoryLogin.reset();
+    if (loginMessage) loginMessage.textContent = "";
   });
 }
 
