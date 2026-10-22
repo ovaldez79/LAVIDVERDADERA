@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Registrar persona | Iglesia Cristiana La Vid Verdadera</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="company-brand" href="index.html#inicio" aria-label="Iglesia Cristiana La Vid Verdadera, ir al inicio">
+      <img class="company-emblem" src="imagen/Logo.jpg" alt="">
+      <span class="company-name"><span>Iglesia Cristiana</span><strong>La Vid Verdadera</strong></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="navigation" aria-label="Menú principal">
+      <a class="nav-link" href="index.html#inicio">Inicio</a>
+      <a class="nav-link active" href="registrar.html" aria-current="page">Registrar persona</a>
+      <a class="nav-link" href="personas.html">Personas registradas</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-wrap content-section registration-page">
+      <div class="section-heading">
+        <div><span class="eyebrow">NUEVO REGISTRO</span><h1>Registrar una persona</h1></div>
+        <p>Completa los datos para agregar una persona.</p>
+      </div>
+      <form class="form-card" id="person-form">
+        <div class="form-grid">
+          <label class="field">
+            <span>Nombre y apellidos <span class="required">*</span></span>
+            <input name="nombreCompleto" type="text" placeholder="Ej. Ana García López" autocomplete="name" required>
+          </label>
+          <label class="field">
+            <span>Correo electrónico <span class="required">*</span></span>
+            <input name="correo" type="email" placeholder="nombre@ejemplo.com" autocomplete="email" required>
+          </label>
+          <label class="field">
+            <span>Teléfono <span class="required">*</span></span>
+            <input name="telefono" type="tel" placeholder="Ej. 555 123 4567" autocomplete="tel" required>
+          </label>
+          <label class="field">
+            <span>Dirección</span>
+            <input name="direccion" type="text" placeholder="Calle, número, colonia y ciudad" autocomplete="street-address">
+          </label>
+          <label class="field">
+            <span>Edad</span>
+            <input name="edad" type="number" min="0" max="120" placeholder="Ej. 15" inputmode="numeric">
+          </label>
+          <label class="field">
+            <span>Sexo</span>
+            <select name="sexo">
+              <option value="">Selecciona una opción</option>
+              <option value="Mujer">Mujer</option>
+              <option value="Hombre">Hombre</option>
+              <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Nombre de madre, padre o tutor</span>
+            <input name="tutor" type="text" placeholder="Nombre completo" autocomplete="name">
+          </label>
+          <label class="field">
+            <span>Teléfono celular del tutor</span>
+            <input name="telefonoTutor" type="tel" placeholder="Ej. 555 123 4567" autocomplete="tel">
+          </label>
+          <label class="field">
+            <span>¿Es alérgico a algún medicamento?</span>
+            <select name="alergiaMedicamento">
+              <option value="">Selecciona una opción</option>
+              <option value="Sí">Sí</option>
+              <option value="No">No</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>¿A qué medicamento(s)? (si aplica)</span>
+            <input name="medicamentosAlergia" type="text" placeholder="Indica el medicamento">
+          </label>
+          <label class="field">
+            <span>¿Cuenta con alguna enfermedad crónica?</span>
+            <select name="enfermedadCronica">
+              <option value="">Selecciona una opción</option>
+              <option value="Sí">Sí</option>
+              <option value="No">No</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>¿Cuál(es)? (si aplica)</span>
+            <input name="detalleEnfermedadCronica" type="text" placeholder="Indica la enfermedad">
+          </label>
+          <label class="field">
+            <span>Tipo de sangre</span>
+            <select name="tipoSangre">
+              <option value="">Selecciona una opción</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="No sé">No sé</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Talla de playera</span>
+            <select name="tallaPlayera">
+              <option value="">Selecciona una opción</option>
+              <option value="CH">CH</option>
+              <option value="M">M</option>
+              <option value="G">G</option>
+              <option value="EG">EG</option>
+              <option value="EEG">EEG</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>¿Cómo te enteraste del campamento?</span>
+            <input name="medioConocimiento" type="text" placeholder="Ej. Redes sociales, amigos, iglesia">
+          </label>
+        </div>
+        <div class="form-footer">
+          <p><span class="required">*</span> Campos obligatorios</p>
+          <button class="button button-primary" type="submit">Guardar persona <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        <a class="back-link" href="personas.html">Ver personas registradas →</a>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer"><span class="brand small-brand"><img class="footer-logo" src="imagen/Logo.jpg" alt=""><span>LA VIDVERDADERA<span class="brand-period">.</span></span></span><span>Un espacio para conectar.</span></footer>
+</body>
+</html>
